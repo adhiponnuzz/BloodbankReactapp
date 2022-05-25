@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from './Header'
 
 const Signin = () => {
     var [username,setUsername]=useState("")
@@ -12,6 +13,7 @@ const Signin = () => {
 
   return (
     <div>
+        <Header/>
 
 <div className="container">
     <div className="row">
