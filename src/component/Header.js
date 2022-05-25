@@ -22,6 +22,10 @@ const Header = () => {
             <Link to="/sign" class="nav-link">Signin</Link>
           
         </li>
+        <li class="nav-item">
+            <Link to="/view" class="nav-link">View</Link>
+          
+        </li>
 
       </ul>
     </div>
