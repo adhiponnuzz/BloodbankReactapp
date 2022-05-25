@@ -4,13 +4,27 @@ import Signup from './component/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Signin from './component/Signin';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
+    <BrowserRouter>
+    <Routes>
 
-    <Signup/>
-    <Signin/>
+      <Route path="/" exact element={<Signup/>}/>
+      <Route path="/sign" exact element={<Signin/>}/>
+
+
+
+
+    </Routes>
+    
+    
+    
+    </BrowserRouter>
+
+
     
     
     
