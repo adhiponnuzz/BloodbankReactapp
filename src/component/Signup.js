@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Header from './Header'
 
@@ -10,8 +11,20 @@ const Signup = () => {
     var [password,setPassword]=useState("") 
 
     const subData=()=>{
-        const data={"Name":name,"Address":address,"Bloodgroup":bloodgroup,"Mobileno":mobileno,"Username":username,"Password":password}
+        const data={"name":name,"address":address,"bloodgroup":bloodgroup,"mobileno":mobileno,"username":username,"password":password}
         console.log(data)
+
+        axios.post("http://localhost:2000/api/addblood",data).then(()=>{
+            console.log(Response.data)
+            if(Response.data.status=="success")
+            {
+                alert("successfully added")
+            }
+            else
+            {
+                alert("failed to added")
+            }
+        })
 
 
 

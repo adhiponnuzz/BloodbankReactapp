@@ -1,25 +1,16 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import Header from './Header'
 
 const View = () => {
-    var viewlist=[
-        {"name": "krishna",
-        "address": "kripavilasam",
-        "bloodgroup": "o+",
-        "mobileno": "9917181313",
-        "username": "krishna11",
-        "password": "11111"
+    var [viewlist,setviewlist]=useState([])
+    var [loadstatus,setloadstatus]=useState(true)
 
-        },
-        {
-        "name": "Nivedh",
-        "address": "Nivedhvilasam",
-        "bloodgroup": "o-",
-        "mobileno": "9907180303",
-        "username": "Nivedh11",
-        "password": "4444"
-        }
-    ]
+    axios.get("http://localhost:2000/api/view").then((Response)=>{
+      console.log(Response.data)
+      setviewlist(Response.data)
+      setloadstatus(false)
+    })
   return (
     <div>
         <Header/>
@@ -41,7 +32,9 @@ const View = () => {
       <th scope="col">password</th>
     </tr>
   </thead>
-  <tbody>
+  {loadstatus ?<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>:<tbody>
     {viewlist.map((value,key)=>{
         return <tr>
       
@@ -61,7 +54,7 @@ const View = () => {
 
 
     })}
-  </tbody>
+  </tbody>}
 </table>
 
 
