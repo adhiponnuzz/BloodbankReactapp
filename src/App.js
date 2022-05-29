@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Signin from './component/Signin';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import View from './component/View';
+import Search from './component/Search';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" exact element={<Signup/>}/>
       <Route path="/sign" exact element={<Signin/>}/>
       <Route path="/view" exact element={<View/>}/>
+      <Route path="/search" exact element={<Search/>}/>
 
 
 
