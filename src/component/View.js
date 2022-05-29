@@ -3,6 +3,20 @@ import React, { useState } from 'react'
 import Header from './Header'
 
 const View = () => {
+
+  const deleteapicall=(id)=>{
+    const data={"_id":id}
+    console.log(data)
+    axios.post("http://localhost:4000/api/delete",data).then((Response)=>{
+        if(Response.data.status=="success")
+        {
+            alert("successfully deleted")
+        }
+        else{
+            alert("error in deletion")
+        }
+    })
+}
     var [viewlist,setviewlist]=useState([])
     var [loadstatus,setloadstatus]=useState(true)
 
@@ -44,6 +58,7 @@ const View = () => {
         <td>{value.mobileno}</td>
         <td>{value.username}</td>
         <td>{value.password}</td>
+        <td><button onClick={()=>{deleteapicall(value._id)}} className="btn btn-danger">DELETE</button></td>
       </tr>
       
 
